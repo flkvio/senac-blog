@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include("./partials/head.ejs") %>
+
+  <body>
+    <%- include("./partials/nav.ejs") %>
+      <div class="conteudo-blog">
+        <div class="posts">
+          <% if (blogs.length> 0) { %> <% blogs.forEach(blog=> {%>
+              <article class="post">
+                <% const data=new Date(blog.created_at) %>
+                  <span class="data"><%- `${data.getDay() < 10 ? "0" + data.getDay() : data.getDay() }/${data.getMonth() < 10 ? "0" +
+                      data.getMonth() :data.getMonth()}/${data.getFullYear()} às
+                      ${data.getHours()<10?"0"+data.getHours():data.getHours()}:${data.getMinutes()<10?"0"+data.getMinutes():data.getMinutes()}`
+                      %></span>
+                  <h3 class="titulo-blog"><%- blog.titulo %></h3>
+                  <p class="conteudo">
+                    <%= blog.textocurto %>
+                  </p>
+                  <p class="conteudo">
+                    <%= blog.texto %>
+                  </p>
+              </article>
+              <% }); %>
+                <% } else { %>
+                  <p>A lista do blog está vazia</p>
+                  <% } %>
+        </div>
+      </div>
+      <%- include("./partials/footer.ejs") %>
+  </body>
+
+</html>
