@@ -1,5 +1,6 @@
 CREATE DATABASE blogsegundaquarta;
 
+USE blogsegundaquarta;
 CREATE TABLE
     post (
         id INT PRIMARY KEY AUTO_INCREMENT,
@@ -9,6 +10,3 @@ CREATE TABLE
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
-
-
-    
